@@ -10,16 +10,16 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 24px; }
     table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; }
+    th, td { border: 3px double #757474; padding: 8px; }
     th { background: #f5f5f5; text-align: left; }
-    .top { display:flex; justify-content:space-between; align-items:center; }
+    .top { display:flex; justify-content:center; align-items:center; text-shadow: 0px 2px 2px grey; }
     .danger { background:#c62828; color:#fff; border:0; padding:6px 10px; cursor:pointer; }
   </style>
 </head>
 <body>
 
   <div class="top">
-    <h1>Clientes</h1>
+    <h1>Tabla de Clientes</h1>
     <a href="index.php?action=create">+ Nuevo cliente</a>
   </div>
 
