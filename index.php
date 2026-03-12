@@ -1,51 +1,33 @@
 <?php
-// index.php
-// Punto de entrada único. Lee ?action=... y llama al controlador.
 
-require_once __DIR__ . '/controller/ClientController.php';
+require_once "controller/ContactController.php";
 
-$controller = new ClientController();
+$controller = new ContactController();
 
-// Acción por URL, por defecto: index (listar)
 $action = $_GET['action'] ?? 'index';
 
-// id cuando haga falta (edit/update/destroy)
-$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
-
-$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-
-switch ($action) {
-    case 'index':
-        $controller->index();
-        break;
-
+switch($action){
     case 'create':
         $controller->create();
         break;
 
     case 'store':
-        if ($method !== 'POST') { echo "Método no permitido"; break; }
-        $controller->store($_POST);
+        $controller->store();
         break;
 
     case 'edit':
-        if ($id === null) { echo "Falta id"; break; }
-        $controller->edit($id);
+        $controller->edit($_GET['id'] ?? null);
         break;
 
     case 'update':
-        if ($method !== 'POST') { echo "Método no permitido"; break; }
-        if ($id === null) { echo "Falta id"; break; }
-        $controller->update($id, $_POST);
+        $controller->update();
         break;
 
     case 'destroy':
-        if ($method !== 'POST') { echo "Método no permitido"; break; }
-        if ($id === null) { echo "Falta id"; break; }
-        $controller->destroy($id);
+        $controller->destroy($_GET['id'] ?? null);
         break;
 
     default:
-        echo "Acción no encontrada";
+        $controller->index();
         break;
 }
