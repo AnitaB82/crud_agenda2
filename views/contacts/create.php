@@ -16,7 +16,7 @@ $errors = $errors ?? [];
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Nuevo contacto</title>
+  <title>Nuevo contacto Actualizado</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 24px; }
     label { display:block; margin-top: 10px; }
